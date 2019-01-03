@@ -1,0 +1,25 @@
+<mat-sidenav #sidenav mode="side" opened="false" fxFlex="260px" class="mat-elevation-z3">
+  <mat-nav-list>
+    <!--<section class="mat-typography">-->
+      <!--<h3>MENU</h3>-->
+    <!--</section>-->
+    <a mat-list-item (click)="routeNavigate('dashboard')">
+      <mat-icon>dashboard</mat-icon> Dashboards</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item (click)="routeNavigate('customers')">
+      <mat-icon>wc</mat-icon> Customers</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item (click)="routeNavigate('invoice')">
+      <mat-icon>card_membership</mat-icon> Invoices</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item  (click)="routeNavigate('receipts')">
+      <mat-icon>receipt</mat-icon> Receipts</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item  (click)="routeNavigate('users')">
+      <mat-icon>supervisor_account</mat-icon> Users</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item  (click)="routeNavigate('settings')">
+      <mat-icon>settings</mat-icon> Settings</a>
+
+  </mat-nav-list>
+</mat-sidenav>
