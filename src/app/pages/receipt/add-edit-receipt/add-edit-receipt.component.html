@@ -1,0 +1,77 @@
+<mat-card class="model-card">
+  <mat-card-title>
+    <span class="mat-h4" style="font-weight: bolder">Add/Update Receipt</span>
+  </mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content style="padding-top: 20px">
+
+    <div class="item-form-grid2">
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Date</mat-label>
+          <input
+            [(ngModel)]="data.object.date"
+            matInput
+            type="text"
+            placeholder="Receipt Number">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Receipt Number</mat-label>
+          <input
+            [(ngModel)]="data.object.receipt_number"
+            matInput
+            type="text"
+            placeholder="Date Created">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Received From</mat-label>
+          <input
+            [(ngModel)]="data.object.received_from"
+            matInput
+            type="text"
+            placeholder="Venue">
+        </mat-form-field>
+      </div>
+
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">In Respect Of</mat-label>
+          <input
+            [(ngModel)]="data.object.in_respect_of"
+            matInput
+            type="text"
+            placeholder="In Respect Of">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Payment Details</mat-label>
+          <input
+            [(ngModel)]="data.object.payment_detail_id"
+            matInput
+            type="text"
+            placeholder="Payment Details">
+        </mat-form-field>
+      </div>
+
+    </div>
+
+  </mat-card-content>
+  <app-loader @fadeIn *ngIf="loading | async" message="Saving Data Please Wait..."></app-loader>
+
+  <mat-card-actions>
+    <app-save-area
+      [saveDisabled]="data.object.customer_id == '' || (loading | async)"
+      (save)="onSave()"
+      (cancel)="onClose()"
+    ></app-save-area>
+  </mat-card-actions>
+</mat-card>

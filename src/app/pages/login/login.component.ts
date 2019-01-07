@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApplicationState} from '../../store';
+import {LoginUser} from '../../store/user/user.actions';
+import {select, Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+import {getIsLogginState, getLoginFailureState, getLoginSuccessState} from '../../store/user/user.selector';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +11,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  user: { username: string, password: string } = {username: '', password: ''};
+  $isLoggingIn: Observable<any>;
+  $loginSuccess: Observable<boolean>;
+  $loginFailure: Observable<boolean>;
 
-  constructor() { }
+  constructor(private store: Store<ApplicationState>) {
+    this.$isLoggingIn = this.store.pipe(select(getIsLogginState));
+    this.$loginSuccess = this.store.pipe(select(getLoginSuccessState));
+    this.$loginFailure = this.store.pipe(select(getLoginFailureState));
+  }
 
   ngOnInit() {
+  }
+
+
+  login() {
+    this.store.dispatch(new LoginUser({
+      credential: {
+        username: this.user.username, password: this.user.password
+      }
+    }));
   }
 
 }

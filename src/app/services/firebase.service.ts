@@ -28,7 +28,9 @@ export class FirebaseService {
   }
 
   getAll(ref): Observable<any> {
+    console.log("out");
     return new Observable((observer) => {
+      console.log("in");
       ref.onSnapshot((querySnapshot) => {
         const resultset = [];
         querySnapshot.forEach((doc) => {

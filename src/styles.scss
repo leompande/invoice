@@ -1,5 +1,4 @@
 /*@import '~@angular/material/prebuilt-themes/indigo-pink.css';*/
-
 @import 'theme.scss';
 
 /* You can add global styles to this file, and also import other style files */
@@ -37,7 +36,6 @@ footer {
   padding-top: 60px;
   padding-bottom: 30px;
 }
-
 
 mat-sidenav {
   overflow: auto;
@@ -83,17 +81,20 @@ select:focus {
   outline: none;
 }
 
-
 @media screen and (max-width: 600px) {
   .container {
     padding-top: 56px;
   }
 }
 
- .cardInner {
-   display: grid;
-   grid-template-areas: "header header" "side content" "footer footer";
-   grid-template-rows: auto auto auto;
-   grid-row-gap: 16px;
-   grid-column-gap: 16px;
- }
+.cardInner {
+  display: grid;
+  grid-template-areas: "header header" "side content" "footer footer";
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+}
+
+.formFieldWidth400 .mat-form-field-infix {
+  width: 400px;
+}

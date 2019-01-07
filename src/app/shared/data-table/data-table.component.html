@@ -1,0 +1,108 @@
+<div class="table-cover">
+  <div class="search-area" *ngIf="pagedItems && pagedItems.length > 0">
+    <mat-form-field *ngIf="tableConfigurations.showSearch">
+      <mat-label>
+        <mat-icon>search</mat-icon> Search
+      </mat-label>
+      <input matInput [(ngModel)]="searchQuery" placeholder="Search">
+    </mat-form-field>
+
+  </div>
+
+  <mat-progress-bar @fadeSmooth mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+  <h5 @fadeSmooth *ngIf="loading">{{ loadingMessage || "Getting Data Please Wait..." }}</h5>
+
+
+  <table *ngIf="pagedItems && pagedItems.length > 0 && !loading; else noData" class="table" [ngClass]="{'table-bordered': tableConfigurations.showBorder}">
+    <thead style='background-color: rgba(0, 0, 0, 0.1); opacity: 0.8;'>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" *ngFor="let column of tableConfigurations?.tableColumns"><b>{{column?.label}}</b></th>
+        <th scope="col" *ngIf="tableConfigurations.actionIcons.edit || tableConfigurations.actionIcons.print || tableConfigurations.actionIcons.delete || tableConfigurations.actionIcons.more">
+
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]="routeAnimationsElements" class="card-1" *ngFor="let tableListItem of pagedItems | search:searchFields:searchQuery; let counter = index">
+        <th scope="row">{{counter+1}}</th>
+        <td *ngFor="let column of tableConfigurations?.tableColumns">
+          <span [ngClass]="{'unspecified': tableListItem[column?.name]==='UNSPECIFIED ROLE'}">
+            {{tableListItem[column?.name] | formatNumber:column?.label}}
+          </span>
+        </td>
+        <td *ngIf="tableConfigurations.actionIcons.edit || tableConfigurations.actionIcons.print || tableConfigurations.actionIcons.delete || tableConfigurations.actionIcons.more">
+          <div class="float-right" role="group" aria-label="Basic example">
+            <a @fadeOut class="cursor text-primary action-button mr-1 btn-float" title="print" (click)="printItem(tableListItem?.id)"
+              *ngIf="tableConfigurations?.actionIcons?.print && !showDelete[tableListItem?.id]">
+              <i class="fa fa-print"></i>
+            </a>
+            <a @fadeOut class="btn btn-sm btn-light action-button mr-1 btn-float" title="view details" (click)="viewItemDetails(tableListItem?.id)"
+              *ngIf="tableConfigurations?.actionIcons?.more && !showDelete[tableListItem?.id]">
+              <i class="fa fa-list"></i>
+            </a>
+            <a @fadeOut class="btn btn-sm btn-light action-button mr-1 btn-float" title="edit" (click)="editItem(tableListItem?.id)"
+              *ngIf="tableConfigurations?.actionIcons?.edit && !showDelete[tableListItem?.id]">
+              <i class="fa fa-pencil"></i>
+            </a>
+
+            <button @fadeOut type="button" class="btn btn-sm btn-danger action-button  btn-float" (click)="showDelete[tableListItem?.id] = true"
+              title="delete" *ngIf="tableConfigurations?.actionIcons?.delete && !showDelete[tableListItem?.id]">
+              <i class="fa fa-trash-o"></i>
+            </button>
+            <p @fadeOut *ngIf="showDelete[tableListItem?.id]">Are You sure?</p>
+            <p @fadeOut *ngIf="showDelete[tableListItem?.id]">
+              <mat-progress-bar mode="indeterminate" *ngIf="tableConfigurations.deleting[tableListItem?.id]"></mat-progress-bar>
+              <button mat-mini-fab color="warn" *ngIf="!tableConfigurations.deleting[tableListItem?.id]" (click)="deleteItem(tableListItem?.id)">
+                <mat-icon>done</mat-icon>
+              </button>
+              <button mat-mini-fab color="primary" *ngIf="!tableConfigurations.deleting[tableListItem?.id]" (click)="showDelete = {}">
+                <mat-icon>clear</mat-icon>
+              </button>
+            </p>
+          </div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+      <table class="table table-bordered" [ngClass]="{'table-bordered': tableConfigurations.showBorder}">
+          <thead style='background-color: rgba(0, 0, 0, 0.1); opacity: 0.8;'>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" *ngFor="let column of tableConfigurations?.tableColumns"><b>{{column?.label}}</b></th>
+              <th scope="col" *ngIf="tableConfigurations.actionIcons.edit || tableConfigurations.actionIcons.delete || tableConfigurations.actionIcons.more">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td [attr.colspan]='tableConfigurations?.tableColumns.length + 1'>
+                  <h5 class="text-center text-muted pt-1" *ngIf="!loading">
+                    {{tableConfigurations.empty_msg || "No data"}}dsd
+                  </h5>
+              </td>
+              <td scope="col" *ngIf="tableConfigurations.actionIcons.edit || tableConfigurations.actionIcons.print || tableConfigurations.actionIcons.delete || tableConfigurations.actionIcons.more"></td>
+            </tr>
+          </tbody>
+      </table>
+
+  </ng-template>
+
+  <div class="card-actions justify-content-end" *ngIf="pagedItems && pagedItems.length > 0 && tableConfigurations.allowPagination && pager?.totalPages > 1">
+    <span class="align-self-center m-xs text-muted">Rows per page:</span>
+    <button mat-button [matMenuTriggerFor]="menu">{{ pageSize }} <i class="fa fa-angle-down"></i> </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let pageSize of pageSizeChanger" (click)="changePageSize(pageSize)">{{pageSize?.item}}</button>
+    </mat-menu>
+    <span
+      style="margin-left: 30px"
+      class="align-self-center m-xs text-muted">
+      {{pager?.startIndex+1}} - {{pager?.endIndex+1}} of {{tableConfigurations?.tableList?.length}}
+    </span>
+    <a class="btn btn-outline" (click)="prevPage()" [class.disabled]="currentPage===1"><i class="material-icons">chevron_left</i></a>
+    <a class="btn btn-outline" (click)="nextPage()" [class.disabled]="currentPage === pager?.totalPages"><i class="material-icons">chevron_right</i></a>
+  </div>
+</div>

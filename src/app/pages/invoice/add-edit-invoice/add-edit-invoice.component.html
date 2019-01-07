@@ -1,0 +1,224 @@
+<mat-card class="model-card">
+  <mat-card-title>
+    <span class="mat-h4" style="font-weight: bolder">Add/Update Invoice</span>
+  </mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content style="padding-top: 20px">
+
+    <div class="item-form-grid2">
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Invoice Number</mat-label>
+          <input
+            [(ngModel)]="data.object.invoice_number"
+            matInput
+            type="text"
+            placeholder="Invoice Number">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Date Created</mat-label>
+          <input
+            [(ngModel)]="data.object.date_created"
+            matInput
+            type="text"
+            placeholder="Date Created">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Venue</mat-label>
+          <input
+            [(ngModel)]="data.object.venue"
+            matInput
+            type="text"
+            placeholder="Venue">
+        </mat-form-field>
+      </div>
+
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Check in Date</mat-label>
+          <input
+            [(ngModel)]="data.object.check_in_date"
+            matInput
+            type="text"
+            placeholder="Check in Date">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Check Out Date</mat-label>
+          <input
+            [(ngModel)]="data.object.check_out_date"
+            matInput
+            type="text"
+            placeholder="Check Out Date">
+        </mat-form-field>
+      </div>
+
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">No. Pax Exp.</mat-label>
+          <input
+            [(ngModel)]="data.object.no_pax_exp"
+            matInput
+            type="text"
+            placeholder="Check Out Date">
+        </mat-form-field>
+      </div>
+
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Customer</mat-label>
+          <input
+            [(ngModel)]="data.object.customer_id"
+            matInput
+            type="text"
+            placeholder="Customer">
+        </mat-form-field>
+      </div>
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Products</mat-label>
+          <input
+            [(ngModel)]="data.object.product_ids"
+            matInput
+            type="text"
+            placeholder="Products">
+        </mat-form-field>
+      </div>
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Sub Total</mat-label>
+          <input
+            [(ngModel)]="data.object.sub_total"
+            matInput
+            type="text"
+            placeholder="Sub Total">
+        </mat-form-field>
+      </div>
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Total</mat-label>
+          <input
+            [(ngModel)]="data.object.total"
+            matInput
+            type="password"
+            placeholder="Total">
+        </mat-form-field>
+      </div>
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Discount</mat-label>
+          <input
+            [(ngModel)]="data.object.discount"
+            matInput
+            type="text"
+            placeholder="Discount">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Amount Paid</mat-label>
+          <input
+            [(ngModel)]="data.object.amount_paid"
+            matInput
+            type="text"
+            placeholder="Amount Paid">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Balance Due</mat-label>
+          <input
+            [(ngModel)]="data.object.balance_due"
+            matInput
+            type="text"
+            placeholder="Balance Due">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Is Service Chargable</mat-label>
+          <input
+            [(ngModel)]="data.object.is_service_chargable"
+            matInput
+            type="text"
+            placeholder="Is Service Chargable">
+        </mat-form-field>
+      </div>
+
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Service Charge</mat-label>
+          <input
+            [(ngModel)]="data.object.service_charge"
+            matInput
+            type="text"
+            placeholder="Service Charge">
+        </mat-form-field>
+      </div>
+
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Is VAT Included</mat-label>
+          <input
+            [(ngModel)]="data.object.is_vat_included"
+            matInput
+            type="text"
+            placeholder="Is VAT Included">
+        </mat-form-field>
+      </div>
+
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">VAT</mat-label>
+          <input
+            [(ngModel)]="data.object.vat"
+            matInput
+            type="text"
+            placeholder="Is VAT Included">
+        </mat-form-field>
+      </div>
+
+
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Remarks</mat-label>
+          <input
+            [(ngModel)]="data.object.remarks"
+            matInput
+            type="text"
+            placeholder="Remarks">
+        </mat-form-field>
+      </div>
+
+
+    </div>
+
+  </mat-card-content>
+  <app-loader @fadeIn *ngIf="loading | async" message="Saving Data Please Wait..."></app-loader>
+
+  <mat-card-actions>
+    <app-save-area
+      [saveDisabled]="data.object.customer_id == '' || (loading | async)"
+      (save)="onSave()"
+      (cancel)="onClose()"
+    ></app-save-area>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,121 @@
+<mat-card class="model-card">
+  <mat-card-title>
+    <span class="mat-h4" style="font-weight: bolder">Add/Update Customer</span>
+  </mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content style="padding-top: 20px">
+
+    <div class="item-form-grid2">
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">First Name</mat-label>
+          <input
+            [(ngModel)]="data.object.first_name"
+            matInput
+            type="text"
+            placeholder="First Name">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Middle Name</mat-label>
+          <input
+            [(ngModel)]="data.object.middle_name"
+            matInput
+            type="text"
+            placeholder="Middle Name">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Last Name</mat-label>
+          <input
+            [(ngModel)]="data.object.last_name"
+            matInput
+            type="text"
+            placeholder="Last Name">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Entry Date</mat-label>
+          <input
+            [(ngModel)]="data.object.entry_date"
+            matInput
+            type="text"
+            placeholder="Entry Date">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Address</mat-label>
+          <input
+            [(ngModel)]="data.object.address"
+            matInput
+            type="text"
+            placeholder="Address">
+        </mat-form-field>
+      </div>
+
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Phone Number</mat-label>
+          <input
+            [(ngModel)]="data.object.phone_number"
+            matInput
+            type="text"
+            placeholder="Phone Number">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Email</mat-label>
+          <input
+            [(ngModel)]="data.object.email"
+            matInput
+            type="text"
+            placeholder="Email">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Fax</mat-label>
+          <input
+            [(ngModel)]="data.object.fax"
+            matInput
+            type="text"
+            placeholder="Fax">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Comments</mat-label>
+          <input
+            [(ngModel)]="data.object.comments"
+            matInput
+            type="text"
+            placeholder="Comments">
+        </mat-form-field>
+      </div>
+
+    </div>
+
+  </mat-card-content>
+  <app-loader @fadeIn *ngIf="loading | async" message="Saving Data Please Wait..."></app-loader>
+
+  <mat-card-actions>
+    <app-save-area
+      [saveDisabled]="data.object.customer_id == '' || (loading | async)"
+      (save)="onSave()"
+      (cancel)="onClose()"
+    ></app-save-area>
+  </mat-card-actions>
+</mat-card>

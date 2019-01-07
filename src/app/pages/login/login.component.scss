@@ -6,3 +6,29 @@
 .example-container > * {
   width: 100%;
 }
+
+.example-card {
+  max-width: 400px;
+}
+
+.formFieldWidth400 .mat-form-field-infix {
+  width: 400px;
+}
+
+.success{
+  padding: 20px;
+  background-color: darkseagreen;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: 15px;
+  color: darkgreen;
+}
+
+.failure{
+  padding: 20px;
+  background-color: indianred;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: 15px;
+  color: darkred;
+}

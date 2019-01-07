@@ -19,3 +19,26 @@ export interface Invoice {
   vat: number;
   remarks: string;
 }
+
+
+export const newInvoice: Invoice = {
+  id: '',
+  invoice_number: '',
+  date_created: '',
+  venue: '',
+  check_in_date: '',
+  check_out_date: '',
+  no_pax_exp: '',
+  customer_id: '',
+  product_ids: [],
+  sub_total: null,
+  total: null,
+  discount: null,
+  amount_paid: null,
+  balance_due: null,
+  is_service_chargable: false,
+  service_charge: null,
+  is_vat_included: false,
+  vat: null,
+  remarks: ''
+};

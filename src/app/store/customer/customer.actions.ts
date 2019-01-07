@@ -26,7 +26,8 @@ export class GetCustomers implements Action {
 export class DoneLoadingCustomers implements Action {
   readonly type = CustomerActionTypes.DoneLoadingCustomers;
 
-  constructor(public payload: { users: Customer[] }) {
+  constructor(public payload: { customers: Customer[] }) {
+    console.log(this.payload);
   }
 }
 

@@ -1,11 +1,15 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { User } from './user.model';
-import { UserActions, UserActionTypes } from './user.actions';
+import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
+import {User} from './user.model';
+import {UserActions, UserActionTypes} from './user.actions';
 
 export interface State extends EntityState<User> {
   selected: string;
   loading: boolean;
   loaded: boolean;
+  isLoggingIn: boolean;
+  loginSuccess: boolean;
+  loginFailure: boolean;
+
 }
 
 export const adapter: EntityAdapter<User> = createEntityAdapter<User>();
@@ -13,7 +17,10 @@ export const adapter: EntityAdapter<User> = createEntityAdapter<User>();
 export const initialState: State = adapter.getInitialState({
   selected: null,
   loading: false,
-  loaded: false
+  loaded: false,
+  isLoggingIn: false,
+  loginSuccess: false,
+  loginFailure: false
 });
 
 export function reducer(
@@ -21,6 +28,14 @@ export function reducer(
   action: UserActions
 ): State {
   switch (action.type) {
+    case UserActionTypes.LoginUser: {
+      console.log(action.payload);
+      return {
+        ...state,
+        isLoggingIn: true
+      };
+    }
+
     case UserActionTypes.AddUser: {
       return adapter.addOne(action.payload.user, state);
     }
@@ -66,6 +81,10 @@ export function reducer(
     }
   }
 }
+//
+// export const getLogginState = (state: State) => state.isLoggingIn;
+// export const getLogginState = (state: State) => state.loginSuccess;
+// export const getLogginState = (state: State) => state.isLoggingIn;
 
 export const {
   selectIds,

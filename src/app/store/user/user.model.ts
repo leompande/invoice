@@ -9,3 +9,16 @@ export interface User {
   phone_number: string;
   email: string;
 }
+
+
+export const newUser = {
+  id: '',
+  first_name: '',
+  middle_name: '',
+  last_name: '',
+  username: '',
+  password: '',
+  avatar_url: '',
+  phone_number: '',
+  email: ''
+};

@@ -11,8 +11,15 @@ export class CustomerService {
 
   }
 
-  getCustomers(): Observable<any> {
-    return this.firebaseService.getAll(this.customers);
+  getCustomers() {
+    this.firebaseService.getAll(this.customers).subscribe((results) => {
+      console.log(results);
+      // observer.next(results);
+      // observer.complete();
+    }, (error) => {
+      // observer.error(error);
+      // observer.complete();
+    });
   }
 
   getCustomerById(id): Observable<any> {

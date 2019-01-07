@@ -10,3 +10,16 @@ export interface Customer {
   fax?: string;
   comments?: string;
 }
+
+export const newCustomer = {
+  id: '',
+  first_name: '',
+  middle_name: '',
+  last_name: '',
+  entry_date: '',
+  address: '',
+  phone_number: '',
+  email: '',
+  fax: '',
+  comments: ''
+};
