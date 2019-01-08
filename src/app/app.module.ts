@@ -30,6 +30,7 @@ import {LoaderComponent} from './shared/loader/loader.component';
 import {FormatNumberPipe} from './shared/format-number.pipe';
 import {SharedModule} from './shared/shared.module';
 import {ReceiptComponent} from './pages/receipt/receipt.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {ReceiptComponent} from './pages/receipt/receipt.component';
     AngularFireDatabaseModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MyCustomMaterialModule,
     FormsModule,
     ReactiveFormsModule,

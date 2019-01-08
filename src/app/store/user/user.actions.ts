@@ -25,6 +25,7 @@ export class LoginUser implements Action {
   readonly type = UserActionTypes.LoginUser;
 
   constructor(public payload: { credential: { username: string; password: string } }) {
+
   }
 }
 

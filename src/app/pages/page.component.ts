@@ -29,13 +29,10 @@ export class PageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // const token = localStorage.getItem('tulonge-web-token');
-    // if (!token) {
-    //   this.store.dispatch(new Go({path: ['login']}));
-    // }
   }
 
   logOut() {
+    localStorage.removeItem('invoice-web-token');
     this.store.dispatch(new Go({path: ['login']}));
   }
 

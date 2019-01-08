@@ -49,7 +49,11 @@ const routes: Routes = [
         path: 'settings',
         loadChildren: './pages/setting/setting.module#SettingModule',
         data: {state: 'setting'}
-      }
+      }, {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
     ]
   }
 ];

@@ -53,12 +53,14 @@
             <mat-progress-bar mode="indeterminate"></mat-progress-bar>
           </div>
           <div *ngIf="$loginSuccess|async">
+            <br/>
             <div class="success">
               login successfully
             </div>
             <br/>
           </div>
           <div *ngIf="$loginFailure|async">
+            <br/>
             <div class="failure">
               login failed
             </div>

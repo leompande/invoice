@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "name": "Invoice Tanpay",
+    "description": "Invoice Tanpay",
+    "appType": "APP",
+    "launch_path": "index.html",
+    "icons": {
+        "16": "assets/images/icons/icon-72x72.png",
+        "48": "assets/images/icons/icon-96x96.png",
+        "128": "assets/images/icons/icon-128x128.png"
+    },
+    "developer": {
+        "name": "Leonard Mpande",
+        "url": "mpande.com"
+    },
+    "default_locale": "en",
+    "activities": {
+        "dhis": {
+            "href": "http://localhost:8080/api/",
+            "href1": "../../../api/"
+        }
+    },
+     "authorities": [
+     ]
+}

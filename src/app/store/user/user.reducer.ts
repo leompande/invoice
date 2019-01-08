@@ -32,7 +32,26 @@ export function reducer(
       console.log(action.payload);
       return {
         ...state,
-        isLoggingIn: true
+        isLoggingIn: true,
+        loginSuccess: false,
+        loginFailure: false,
+      };
+    }
+    case UserActionTypes.LoginUserSuccess: {
+      return {
+        ...state,
+        isLoggingIn: false,
+        loginSuccess: true,
+        loginFailure: false,
+      };
+    }
+
+    case UserActionTypes.LoginUserFailure: {
+      return {
+        ...state,
+        isLoggingIn: false,
+        loginSuccess: false,
+        loginFailure: true,
       };
     }
 

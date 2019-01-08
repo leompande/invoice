@@ -8,6 +8,9 @@ export interface User {
   avatar_url: string;
   phone_number: string;
   email: string;
+  dataViewOrganisationUnits?: any[];
+  organisationUnits?: any[];
+  userCredentials?: any;
 }
 
 

@@ -4,6 +4,7 @@ import {LoginUser} from '../../store/user/user.actions';
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {getIsLogginState, getLoginFailureState, getLoginSuccessState} from '../../store/user/user.selector';
+import {Go} from '../../store/router/router.action';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +24,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    const token = localStorage.getItem('invoice-web-token');
+    if (token) {
+      this.store.dispatch(new Go({ path: ['', 'page', 'dashboard'] }));
+    }
   }
-
 
   login() {
     this.store.dispatch(new LoginUser({

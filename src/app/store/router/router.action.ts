@@ -14,7 +14,6 @@ export class Go implements Action {
       extras?: NavigationExtras;
     }
   ) {
-    console.log('Here:', payload.path);
     if (!(payload.path.indexOf('login') > -1 || payload.path.indexOf('page') > -1)) {
       payload.path.unshift('page');
     }
