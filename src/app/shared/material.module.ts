@@ -1,11 +1,24 @@
 import {NgModule} from '@angular/core';
 import {
-  MatToolbarModule, MatSidenavModule, MatCardModule,
-  MatIconModule, MatButtonModule, MatListModule,
-  MatCheckboxModule, MatTableModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatCardModule,
+  MatIconModule,
+  MatButtonModule,
+  MatListModule,
+  MatCheckboxModule,
+  MatTableModule,
   MatMenuModule,
-  MatFormFieldModule, MatInputModule,
-  MatSelectModule, MatTooltipModule, MatProgressSpinnerModule, MatGridListModule, MatPaginatorModule, MatProgressBarModule, MatDialogModule
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatTooltipModule,
+  MatProgressSpinnerModule,
+  MatGridListModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatDialogModule,
+  MatDatepickerModule, MatNativeDateModule
 } from '@angular/material';
 
 const modules = [
@@ -17,7 +30,7 @@ const modules = [
   MatInputModule, MatSelectModule,
   MatTooltipModule, MatProgressSpinnerModule,
   MatGridListModule, MatPaginatorModule,
-  MatProgressBarModule, MatDialogModule
+  MatProgressBarModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule
 ];
 
 @NgModule({

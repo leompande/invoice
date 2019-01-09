@@ -1,10 +1,8 @@
 export interface Customer {
   id: string;
-  first_name: string;
-  middle_name: string;
-  last_name: string;
-  entry_date?: string;
+  customer_name: string;
   address?: string;
+  contact_person?: string;
   phone_number?: string;
   email?: string;
   fax?: string;
@@ -13,12 +11,11 @@ export interface Customer {
 
 export const newCustomer = {
   id: '',
-  first_name: '',
-  middle_name: '',
-  last_name: '',
-  entry_date: '',
+  customer_name: '',
   address: '',
+  contact_person: '',
   phone_number: '',
+  entry_date: '',
   email: '',
   fax: '',
   comments: ''

@@ -21,6 +21,10 @@ export function reducer(
   action: CustomerActions
 ): State {
   switch (action.type) {
+    case CustomerActionTypes.DoneLoadingCustomers: {
+      return adapter.addMany(action.payload.customers, state);
+    }
+
     case CustomerActionTypes.AddCustomer: {
       return adapter.addOne(action.payload.customer, state);
     }

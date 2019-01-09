@@ -39,15 +39,22 @@
         </mat-form-field>
       </div>
 
-
+      <!--<mat-form-field class="example-full-width">-->
+        <!--<input matInput [matDatepicker]="picker" placeholder="Choose a date">-->
+        <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+        <!--<mat-datepicker touchUi #picker></mat-datepicker>-->
+      <!--</mat-form-field>-->
       <div class="grid-item">
         <mat-form-field appearance="outline">
           <mat-label class="required" floatLabel="auto">Check in Date</mat-label>
           <input
+            [matDatepicker]="check_in_date"
             [(ngModel)]="data.object.check_in_date"
             matInput
             type="text"
             placeholder="Check in Date">
+          <mat-datepicker-toggle matSuffix [for]="check_in_date"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #check_in_date></mat-datepicker>
         </mat-form-field>
       </div>
 
@@ -55,10 +62,13 @@
         <mat-form-field appearance="outline">
           <mat-label class="required" floatLabel="auto">Check Out Date</mat-label>
           <input
+            [matDatepicker]="check_out_date"
             [(ngModel)]="data.object.check_out_date"
             matInput
             type="text"
             placeholder="Check Out Date">
+          <mat-datepicker-toggle matSuffix [for]="check_out_date"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #check_out_date></mat-datepicker>
         </mat-form-field>
       </div>
 
@@ -76,9 +86,17 @@
 
 
       <div class="grid-item">
-        <mat-form-field appearance="outline">
-          <mat-label class="required" floatLabel="auto">Customer</mat-label>
+        <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems"
+                              [settings]="dropdownSettings"
+                              (onSelect)="onItemSelect($event)"
+                              (onDeSelect)="OnItemDeSelect($event)"
+                              (onSelectAll)="onSelectAll($event)"
+                              (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+        <mat-form-field appearance="outline" style="display: none">
+          <!--<mat-label class="required" floatLabel="auto">Customer</mat-label>-->
+
           <input
+
             [(ngModel)]="data.object.customer_id"
             matInput
             type="text"

@@ -3,7 +3,14 @@
     <mat-icon>wc</mat-icon>&nbsp;Customers
   </div>
   <div>
-    <app-main-data-table></app-main-data-table>
+    <app-main-data-table
+      *ngIf="tableConfigurations.tableColumns"
+      [tableConfigurations]="tableConfigurations"
+      [loading]="loading"
+      [tableList]="customers"
+      (rowUpdate)="onUpdate($event)"
+      (rowDelete)="onDelete($event)"
+    ></app-main-data-table>
   </div>
   <div style="position: fixed;margin-left: 80%!important;bottom: 80px!important;">
     <button mat-fab color="primary"  (click)="addItem()">

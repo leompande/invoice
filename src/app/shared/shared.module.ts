@@ -6,6 +6,7 @@ import {LoaderComponent} from './loader/loader.component';
 import {FormatNumberPipe} from './format-number.pipe';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SaveAreaComponent} from './save-area/save-area.component';
+import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,11 @@ import {SaveAreaComponent} from './save-area/save-area.component';
 
     FormsModule,
     ReactiveFormsModule,
+    AngularMultiSelectModule
   ],
   exports: [
     MyCustomMaterialModule,
+    AngularMultiSelectModule,
     SaveAreaComponent,
     MainDataTableComponent,
     LoaderComponent,

@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {AddEditInvoiceComponent} from './add-edit-invoice/add-edit-invoice.component';
 import {Invoice, newInvoice} from '../../store/invoice/invoice.model';
+import {GetCustomers} from '../../store/customer/customer.actions';
+import {ApplicationState} from '../../store';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-invoice',
@@ -11,7 +14,8 @@ import {Invoice, newInvoice} from '../../store/invoice/invoice.model';
 export class InvoiceComponent implements OnInit {
   invoices: Invoice[];
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private store: Store<ApplicationState>) {
+    this.store.dispatch(new GetCustomers());
   }
 
   ngOnInit() {
@@ -27,6 +31,10 @@ export class InvoiceComponent implements OnInit {
       },
       panelClass: 'formFieldWidth400'
     });
+  }
+
+  onDelete(objectId) {
+
   }
 
   onUpdate(objectId) {

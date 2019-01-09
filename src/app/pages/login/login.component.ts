@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     const token = localStorage.getItem('invoice-web-token');
     if (token) {
-      this.store.dispatch(new Go({ path: ['', 'page', 'dashboard'] }));
+      this.store.dispatch(new Go({path: ['', 'page', 'dashboard']}));
     }
   }
 

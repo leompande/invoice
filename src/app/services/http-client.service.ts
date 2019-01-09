@@ -20,7 +20,7 @@ export class HttpClientService {
   get(
     url: string
   ): Observable<any> {
-    const token = localStorage.getItem('tanpay-invoice-web-token');
+    const token = localStorage.getItem('invoice-web-token');
     const headers: HttpHeaders = this.createAuthorizationHeader(token);
     return this.httpClient.get(url, {headers}).pipe(catchError(this._handleError));
   }
@@ -28,7 +28,7 @@ export class HttpClientService {
   getBase(
     url: string
   ): Observable<any> {
-    const token = localStorage.getItem('tanpay-invoice-web-token');
+    const token = localStorage.getItem('invoice-web-token');
     const headers: HttpHeaders = this.createAuthorizationHeader(token);
     return this.httpClient.get(url, {headers}).pipe(catchError(this._handleError));
   }
@@ -37,7 +37,7 @@ export class HttpClientService {
     url: string,
     data: any
   ) {
-    const token = localStorage.getItem('tanpay-invoice-web-token');
+    const token = localStorage.getItem('invoice-web-token');
     const headers: HttpHeaders = this.createAuthorizationHeader(token);
     return this.httpClient
       .post(url, data, {headers})
@@ -48,7 +48,7 @@ export class HttpClientService {
     url: string,
     data: any
   ) {
-    const token = localStorage.getItem('tanpay-invoice-web-token');
+    const token = localStorage.getItem('invoice-web-token');
     const headers: HttpHeaders = this.createAuthorizationHeader(token);
     return this.httpClient
       .put(url, data, {headers})
@@ -58,7 +58,7 @@ export class HttpClientService {
   delete(
     url: string
   ) {
-    const token = localStorage.getItem('tanpay-invoice-web-token');
+    const token = localStorage.getItem('invoice-web-token');
     const headers: HttpHeaders = this.createAuthorizationHeader(token);
     return this.httpClient
       .delete(url, {headers})
